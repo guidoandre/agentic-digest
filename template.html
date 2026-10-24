@@ -1,0 +1,71 @@
+<!--
+  agentic-digest · template.html
+  Modello della mail settimanale "Prova questo".
+  Regole: solo tabelle e stili inline (compatibilità Gmail), niente <style>, immagini o JS.
+  Segnaposto tra {{ }}. I blocchi marcati REPEAT si ripetono; quelli marcati OPTIONAL si omettono se vuoti.
+-->
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#F4F1EC;padding:32px 12px;font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">
+<tr><td align="center">
+<table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
+
+  <!-- HEADER -->
+  <tr><td style="padding:0 4px 24px 4px;">
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#C2410C;font-weight:600;">Prova questo</div>
+    <div style="font-size:26px;font-weight:700;color:#1F1F1F;margin-top:6px;">{{TITOLO_SETTIMANA}}</div>
+    <div style="font-size:14px;color:#6B6B6B;margin-top:6px;">{{DATA}} · {{N_SCHEDE}} cose da provare · {{N_RADAR}} sul radar</div>
+  </td></tr>
+
+  <!-- OPTIONAL: NOTIZIA DELLA SETTIMANA -->
+  <tr><td style="padding:0 0 20px 0;">
+    <div style="background:#1F1F1F;color:#FFFFFF;border-radius:12px;padding:16px 20px;font-size:14px;line-height:1.5;">
+      <span style="color:#FDBA74;font-weight:600;">La notizia · </span>{{NOTIZIA}} <a href="{{NOTIZIA_LINK}}" style="color:#FDBA74;text-decoration:none;">→</a>
+    </div>
+  </td></tr>
+  <!-- /OPTIONAL -->
+
+  <!-- REPEAT: SCHEDA (3–5 volte) -->
+  <tr><td style="padding:0 0 16px 0;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E7E2DA;border-radius:12px;">
+    <tr><td style="padding:20px 22px;">
+      <table cellpadding="0" cellspacing="0"><tr>
+        <td style="vertical-align:top;padding-right:12px;">
+          <div style="width:28px;height:28px;line-height:28px;border-radius:14px;background:#C2410C;color:#FFFFFF;text-align:center;font-weight:700;font-size:14px;">{{N}}</div>
+        </td>
+        <td style="vertical-align:top;">
+          <div style="font-size:18px;font-weight:700;color:#1F1F1F;">{{NOME}}</div>
+          <div style="margin-top:4px;">
+            <span style="display:inline-block;font-size:11px;color:#6B6B6B;background:#F4F1EC;border-radius:10px;padding:2px 8px;">{{TIPO}}</span>
+            <span style="display:inline-block;font-size:11px;color:#6B6B6B;background:#F4F1EC;border-radius:10px;padding:2px 8px;">⏱ {{MINUTI}} min</span>
+          </div>
+        </td>
+      </tr></table>
+      <p style="font-size:14px;line-height:1.55;color:#1F1F1F;margin:14px 0 6px 0;">{{COSA_E}}</p>
+      <p style="font-size:14px;line-height:1.55;color:#1F1F1F;margin:0 0 12px 0;"><b>Perché a te:</b> {{PERCHE}}</p>
+      <div style="background:#F8F6F2;border-radius:8px;padding:10px 12px;font-family:Menlo,Consolas,monospace;font-size:12.5px;color:#1F1F1F;">{{COME_PROVARLA}}</div>
+      <p style="margin:12px 0 0 0;font-size:13px;">
+        <a href="{{LINK}}" style="color:#C2410C;font-weight:600;text-decoration:none;">Apri →</a>
+        <span style="color:#6B6B6B;"> · fonte: {{FONTE}}</span>
+      </p>
+    </td></tr>
+    </table>
+  </td></tr>
+  <!-- /REPEAT -->
+
+  <!-- RADAR (titolo una volta, righe REPEAT max 5) -->
+  <tr><td style="padding:8px 4px 0 4px;">
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#6B6B6B;font-weight:600;margin-bottom:8px;">Sul radar</div>
+    <!-- REPEAT: RIGA RADAR -->
+    <div style="font-size:14px;line-height:1.6;color:#1F1F1F;padding:6px 0;border-bottom:1px solid #E7E2DA;"><b>{{RADAR_NOME}}</b> — {{RADAR_DESCRIZIONE}} <a href="{{RADAR_LINK}}" style="color:#C2410C;text-decoration:none;">→</a></div>
+    <!-- /REPEAT -->
+  </td></tr>
+
+  <!-- FOOTER -->
+  <tr><td style="padding:28px 4px 0 4px;font-size:12.5px;line-height:1.6;color:#6B6B6B;">
+    Rispondi con il numero della scheda + <b>tenuta</b> o <b>scartata</b> (es. "1 tenuta, 3 scartata"): il prossimo numero ne tiene conto.
+    <!-- OPTIONAL --><br>Fonti non raggiungibili questa settimana: {{FONTI_KO}}<!-- /OPTIONAL -->
+    <br><span style="color:#A8A29E;">agentic-digest · configurazione su GitHub</span>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
