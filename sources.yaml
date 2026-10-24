@@ -1,0 +1,38 @@
+# agentic-digest · sources.yaml
+# Fonti lette a ogni esecuzione. Finestra temporale: ultimi 8 giorni.
+# Per aggiungere/togliere una fonte basta modificare questo file.
+
+gmail:
+  # Newsletter iscritte con guido005wut+ai@gmail.com (etichetta Gmail "AI digest")
+  - query: 'label:"AI digest" newer_than:8d'
+    include:
+      - Simon Willison
+      - Elevate (Addy Osmani)
+      - AI Coding Daily (Povilas Korop)
+      - Latent Space + AINews
+      - TLDR AI
+      - Unwind AI
+      - Vibe Coding Weekly
+  - query: 'from:maverick@maltin.com newer_than:8d'
+    include: [Maverick AI]
+  - query: 'from:notifications@github.com newer_than:8d (claude-code OR codex)'
+    include: [Release GitHub di Claude Code e Codex]
+  ignore: [mail di benvenuto, mail di conferma iscrizione]
+
+web:
+  primary:            # novità ufficiali dei tool
+    - https://docs.anthropic.com/en/release-notes/claude-code
+    - https://github.com/anthropics/claude-code/releases
+    - https://www.anthropic.com/engineering
+    - https://github.com/openai/codex/releases
+    - https://cursor.com/changelog
+  skills_and_plugins: # scoperta di skill/plugin
+    - https://github.com/anthropics/skills
+    - https://github.com/obra/superpowers
+    - https://github.com/hesreallyhim/awesome-claude-code
+    - https://github.com/travisvn/awesome-claude-skills
+  practitioners:      # blog di chi usa gli agenti sul serio
+    - https://simonwillison.net
+    - https://lucumr.pocoo.org
+  community:
+    - Hacker News (thread recenti su Claude Code / coding agents)
